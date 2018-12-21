@@ -1,0 +1,11 @@
+.alert-container {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    min-width: 100px;
+    padding: 24px 18px;
+    background-color: $error;
+    .alert-text {
+        text-align: center;
+    }
+}

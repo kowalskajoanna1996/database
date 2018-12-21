@@ -1,0 +1,47 @@
+.main-menu-list > .single-list {
+    border-bottom: 1px solid $border;
+}
+
+.single-list {
+    padding: 10px 4px;
+    margin-top: 6px;
+    list-style-type: none;
+    font-size: 12px;
+    &.hasItems {
+        > .list-name {
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all .1s ease-in;
+            > svg {
+                width: 16px;
+                height: 16px;
+                margin-right: 4px;
+                transition: all .1s ease-in;
+            }
+            &:hover {
+                color: $text-highlight;
+                > svg {
+                    fill: $text-highlight;
+                }
+            }
+        }
+    }
+    &.clickable {
+        > .list-name {
+            color: $active;
+            font-weight: 900;
+            cursor: pointer;
+        }
+    }
+    &.show {
+        > .sublist {
+            display: block;
+        }
+    }
+    > .sublist {
+        display: none;
+        padding-left: 20px;
+    }
+}

@@ -1,0 +1,32 @@
+$error: #EF4147;
+$text-primary: #18121E;
+// $text-highlight: #286DA8;
+$text-highlight: #67AECA;
+$background: #E5E5E5;
+$border: #CDCDCD;
+$active: #C06014;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: $text-primary;
+    background: $background;
+}
+
+.App {
+    display: flex;
+}
+
+@import './shared/Loader/Loader.scss';
+@import './shared/ErrorAlert/ErrorAlert.scss';
+@import './Menu/MenuTree/MenuTree.scss';
+@import './Menu/MenuList/MenuList.scss';
+@import './Menu/SingleTree/SingleTree.scss';
+@import './SelectedTool/SelectedTool/SelectedTool.scss';

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import tools from './tools';
-import types from './types';
+import data from './data';
+import tool from './selectedTools';
 
 export default combineReducers({    
-    tools: tools,
-    types: types 
+    data: data,
+    tool: tool
 });

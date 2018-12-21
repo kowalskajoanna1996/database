@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
-import Menu from './Menu/Menu';
+import './App.scss';
 
+import MenuTree from './Menu/MenuTree/MenuTree';
+import SelectedTool from './SelectedTool/SelectedTool/SelectedTool';
+ 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Menu />
+        <MenuTree />
+        <SelectedTool />
       </div>
     );
   }
