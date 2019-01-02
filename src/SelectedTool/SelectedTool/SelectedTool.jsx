@@ -1,15 +1,17 @@
 import React, { memo } from 'react';
 import { connect } from 'react-redux';
 
+import ToolsTable from '../ToolsTable/ToolsTable';
+
 const SelectedTool = ({
-    toolTable,
+    tools,
     hasSelected,
     isLoading,
     errorMsg
 }) => (
     <div className={'selected-tool-container'}>
         {hasSelected ? (
-            <span>wybral xD</span>
+            <ToolsTable tools={tools} />
         ) : (
             <h2 className={'title'}>Aby zobaczyć dane, wybierz narzędzie z menu aplikacji!</h2>
         )}

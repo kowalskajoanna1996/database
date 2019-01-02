@@ -11,8 +11,10 @@ class ToolsService {
     }
 
     getTool(nodeID) {
-        return this.tools.find(t => t.nodeID === nodeID);
-        // tutaj zapytanie do API
+        return tool;
+        // return api.get('/api/tool', { params: nodeID })
+        //     .then(res => res.data)
+        //     .catch(err => Promise.reject(err));
     }
 
     filterTools(keyID) {
@@ -24,6 +26,269 @@ class ToolsService {
 const toolsService = new ToolsService;
 
 export default toolsService;
+
+const tool = [
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },{
+        NodeID: 'OPSIMPS',
+        NrProduktu: '323',
+        Typ: '6552-64',
+        S: 63,
+        B: 120,
+        H: 47,
+        L: 147 
+    },
+    {
+        NodeID: 'OPSIMPS',
+        NrProduktu: '3233',
+        Typ: '655122-64',
+        S: 6223,
+        B: 3,
+        H: 3,
+        L: 4 
+    },
+]
 
 const dupa = [
     {

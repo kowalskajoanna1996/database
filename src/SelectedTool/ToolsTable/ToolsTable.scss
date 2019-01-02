@@ -1,0 +1,21 @@
+.table-container {
+    max-height: 50vh;
+    max-width: 100%;
+    overflow: auto;
+    .tools-table {
+        width: 100%;
+        border-collapse: collapse;
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid $border;
+            font-size: 12px;
+        }
+        tbody tr {
+            cursor: pointer;
+            transition: all .2s ease-in;
+        }
+        tbody tr:hover {
+            background-color: $border;
+        }
+    }
+}
