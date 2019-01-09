@@ -4,17 +4,15 @@ class ToolsService {
     tools = [];
 
     getTools() {
-        return this.tools = dupa;
-        // return api.get('/api/tools')1
-        //     .then(res => this.tools = res.data)
-        //     .catch(err => Promise.reject(err));
+        return api.get('/api/tools')1
+            .then(res => this.tools = res.data)
+            .catch(err => Promise.reject(err));
     }
 
     getTool(nodeID) {
-        return tool;
-        // return api.get('/api/tool', { params: nodeID })
-        //     .then(res => res.data)
-        //     .catch(err => Promise.reject(err));
+        return api.get('/api/tool', { params: nodeID })
+            .then(res => res.data)
+            .catch(err => Promise.reject(err));
     }
 
     filterTools(keyID) {

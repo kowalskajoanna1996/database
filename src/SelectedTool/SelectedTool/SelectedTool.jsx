@@ -1,35 +1,66 @@
-import React, { memo } from 'react';
-import { connect } from 'react-redux';
+import React, { PureComponent } from 'react';
 
 import ToolsTable from '../ToolsTable/ToolsTable';
+import toolsService from './../../api/tools.service';
+import Loader from './../../shared/Loader/Loader';
+import ErrorAlert from './../../shared/ErrorAlert/ErrorAlert';
 
-const SelectedTool = ({
-    tools,
-    hasSelected,
-    isLoading,
-    errorMsg
-}) => (
-    <div className={'selected-tool-container'}>
-        {hasSelected ? (
-            <ToolsTable tools={tools} />
-        ) : (
-            <h2 className={'title'}>Aby zobaczyć dane, wybierz narzędzie z menu aplikacji!</h2>
-        )}
-    </div>
-);
+class SelectedTool extends PureComponent {
+    constructor(props) {
+        super(props);
 
-const mapStateToProps = state => ({
-    isLoading: state.tool.isLoading,
-    errorMsg: state.tool.errorMsg,
-    tools: state.tool.toolTable,
-    hasSelected: state.tool.hasSelected
-});
+        this.state = {
+            loading: false,
+            errorMsg: '',
+            tools: null
+        };
+    }
 
-const mapDispatchToProps = dispatch => ({
+    componentDidUpdate(prevProps) {
+        if(prevProps.selectedTool !== this.props.selectedTool) {
+            this.getSelectedTool(this.props.selectedTool.nodeID);
+        }
+    }
 
-});
+    getSelectedTool(nodeID) {
+        toolsService.getTool(nodeID)
+            .then(data => {
+                this.setState(prevState => ({ loading: false, tools: data }))
+            })
+            .catch(err => {
+                this.setState(prevState => ({ loading: false, errorMsg: 'Błąd podczas pobierania narzędzia. '}));
+            })
+    }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SelectedTool);
+    render() {
+        const {
+            loading,
+            errorMsg,
+            tools
+        } = this.state;
+        const {
+            hasSelected
+        } = this.props;
+
+        return (
+            <div className={'selected-tool-container'}>
+                {hasSelected ? (
+                    loading ? (
+                        <Loader loaderText={'Ładowanie narzędzi'} />
+                    ) : errorMsg ? (
+                        <ErrorAlert alertText={errorMsg} />
+                    ) : (
+                        <div>
+                            <h2 className={'nav-title'}>Menu Aplikacji</h2>
+                            <ToolsTable tools={tools} />
+                        </div>
+                    )
+                ) : (
+                    <h2 className={'title'}>Aby zobaczyć dane, wybierz narzędzie z menu aplikacji!</h2>
+                )}
+            </div>
+        )
+    }
+}
+
+export default SelectedTool;

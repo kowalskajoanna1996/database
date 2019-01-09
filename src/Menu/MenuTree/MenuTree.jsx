@@ -1,41 +1,53 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
+import toolsService from './../../api/tools.service';
 
-import HocLoader from './../../shared/HocLoader/HocLoader';
 import MenuList from './../MenuList/MenuList';
-import { ActionTypes } from '../../actions/actions';
+import Loader from './../../shared/Loader/Loader';
+import ErrorAlert from './../../shared/ErrorAlert/ErrorAlert';
 
 class MenuTree extends PureComponent {
     constructor(props) {
         super(props);
+
+        this.state = {
+            loading: true,
+            errorMsg: ''
+        }
+    }
+
+    componentDidMount() {
+        toolsService.getTools()
+            .then(res => {
+                this.setState(prevState => ({ loading: false }))
+            }).catch(err => {
+                this.setState(prevState => ({ loading: false, errorMsg: 'Wystąpił błąd podczas pobierania narzędzi.' }));
+            })
     }
 
     render() {
         const {
             selectTool
         } = this.props;
+        const {
+            loading,
+            errorMsg
+        } = this.state;
 
         return (
             <nav className={'navigation'}>
-                <h2 className={'nav-title'}>Menu Aplikacji</h2>
-                <MenuList selectTool={selectTool} />
+                {loading ? (
+                    <Loader loaderText={'Ładowanie narzędzi'} />
+                ) : errorMsg ? (
+                    <ErrorAlert alertText={errorMsg} />
+                ) : (
+                    <div>
+                        <h2 className={'nav-title'}>Menu Aplikacji</h2>
+                        <MenuList selectTool={selectTool} />
+                    </div>
+                )}
             </nav>
         );
     }
 }
 
-const mapStateToProps = state => ({
-    isLoading: state.data.isLoading,
-    errorMsg: state.data.errorMsg,
-    tools: state.data.tools
-});
-
-const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch({ type: ActionTypes.GET_DATA_TOOLS }),
-    selectTool: nodeID => dispatch({ type: ActionTypes.GET_SELECTED_TOOL, data: nodeID })
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(HocLoader(MenuTree));
+export default MenuTree;
